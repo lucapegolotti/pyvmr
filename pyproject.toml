@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyvmr"
+version = "0.1.0"
+description = "Python client for the Vascular Model Repository (VMR)"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [
+    { name = "SimVascular Team" },
+]
+keywords = [
+    "vascular",
+    "cardiovascular",
+    "simvascular",
+    "medical-imaging",
+    "computational-modeling",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+dependencies = [
+    "requests>=2.28",
+    "pandas>=1.5",
+    "tqdm>=4.64",
+]
+
+[project.optional-dependencies]
+cli = ["click>=8.0"]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "responses>=0.23",
+]
+
+[project.scripts]
+pyvmr = "pyvmr.cli:main"
+
+[project.urls]
+Homepage = "https://www.vascularmodel.com"
+Repository = "https://github.com/SimVascular/vmr-api"
+Documentation = "https://github.com/SimVascular/vmr-api#readme"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pyvmr"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
