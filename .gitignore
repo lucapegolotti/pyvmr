@@ -1,0 +1,8 @@
+# IDE and editor
+.claude/
+
+# Testing
+.pytest_cache/
+
+# macOS
+.DS_Store
